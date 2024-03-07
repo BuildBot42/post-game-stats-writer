@@ -1,0 +1,5 @@
+{
+  "statsDumpDir": "/path/to/BrawlhallaStatsDump",
+  "outFile": "./out.html",
+  "templateFile": "./example.html"
+}
