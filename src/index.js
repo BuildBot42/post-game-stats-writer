@@ -10,6 +10,8 @@ if(existsSync(process.cwd() + '/stats-config.json')) {
     Object.keys(uc).forEach(i => {
       config[i] = uc[i];
     })
+    if(!existsSync(config.outFile)) {  console.log("Could not find template file!"); process.exit() };
+    if(!config.statsDumpDir.endsWith('/')) {  console.log("No trailing slash found for statsDumpDir!"); process.exit() };
     console.log('Successfully loaded configuration file.')
   } catch(err) {
     console.error('ERROR when checking stats-config - is it valid JSON?')
@@ -22,7 +24,7 @@ if(existsSync(process.cwd() + '/stats-config.json')) {
 
 watch(config.statsDumpDir, (type, filename) => {
   if(type === 'rename') {
-    if(/\[?\d+\.\d+\]?[\w]+\.json/.test(filename) && existsSync(config.statsDumpDir + filename)) {
+    if(/\[?\d+\.\d+\]?[\w]+(\(\d+\)?\.json/.test(filename) && existsSync(config.statsDumpDir + filename)) {
       console.log('Discovered new JSON dump: ' + filename)
       let data = parseData(require(config.statsDumpDir + filename))
       output(data, config); delete require.cache[require.resolve(config.statsDumpDir + filename)]

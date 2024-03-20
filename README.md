@@ -27,13 +27,13 @@ This is a step-by-step guide to using the Post-Game Stats Writer on a Windows co
 
 1. Edit your launch options within Steam settings to include the `-writestats` option.
 2. Open (or restart if already opened) Brawlhalla.
-3. Spectate any match, and search for your `BrawlhallaStatDumps` folder (normally located in your User folder [`C:\Users\<your user>\BrawlhallaStatDumps`]).
+3. Spectate any match, and search for your `BrawlhallaStatDumps` folder (normally located in your User folder [`C:/Users/<your user>/BrawlhallaStatDumps/`]).
 4. Create a new folder to hold the Post-Game Stats Writer & configuration file as well as the output file.
-5. Download the latest index-win.exe from the releases section and move it to this new folder.
+5. Download the latest `index-win.exe` from the releases section and move it to this new folder.
 6. Download the `example.html` file and place it in this new folder.
-7. Download the `stats-config.json` file and place it in this new folder. Edit it so that the `statsDumpDir` entry points to your BrawlhallaStatDumps folder.
+7. Download the `stats-config.json` file and place it in this new folder. Edit it so that the `statsDumpDir` entry points to your BrawlhallaStatDumps folder. **Be certain to add a trailing slash to your path - e.g. `/path/to/statsDumpDir/` - else your files will not be read.**
 8. Open this folder, right-click and open a command prompt in this folder.
-9. Run the executable by typing `index-windows.exe`
+9. Run the executable by typing `index-win.exe`
 10. If you get any errors, read the error and follow what it tells you - if you're experiencing issues, [contact me on Discord](https://discord.gg/aUgghaYjgx)!
 11. Go back to Brawlhalla and spectate a **Stock 1v1 match**.
 12. Open the newly created `out.html` file in your preferred browser - it should be updated the last spectated match's stats!
